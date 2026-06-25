@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Pretendard', system-ui, -apple-system, sans-serif;
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* 다크 모드 스타일 강제/감지 */
+.dark body {
+  background-color: #0b0f19;
+  color: #f8fafc;
+}
+
+/* 스크롤바 커스텀 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+/* 브라우저 테마 강제 덮어쓰기 방지: 입력창을 어두운 테마로 강제 지정 및 밝은 글자색 */
+input, select, textarea {
+  background-color: #1e293b !important; /* Slate-800 */
+  color: #f8fafc !important;            /* 밝은 회색/흰색 */
+  border-color: #334155 !important;      /* Slate-700 */
+}
+
+.dark input, .dark select, .dark textarea {
+  background-color: #0f172a !important; /* Slate-900 */
+  color: #f8fafc !important;
+  border-color: #1e293b !important;
+}
